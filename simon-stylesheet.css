@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Molle:400i');
+
+#main-header {
+    font-family: 'Molle', cursive;
+    text-align: center;
+}
+
+.square {
+    height: 200px;
+    width: 200px;
+    float: left;
+    margin: 5px;
+}
+
+#red-div {
+    background-color: red;
+}
+
+#blue-div {
+    background-color: blue;;
+}
+
+#green-div {
+    background-color: green;
+    clear: both;
+}
+
+#yellow-div {
+    background-color: yellow;
+}
+
+#start-game {
+
+}
