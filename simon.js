@@ -4,40 +4,48 @@
 
 "use strict";
 
-// var startGame = false;
-var randomPattern = [];
-// var matchPattern = ;
-// var successfulDuplication = ;
-// var failedDuplication = ;
-// var addToPattern = ;
-    var userPattern = [];
-
 $(document).ready(function () {
-    var squareArray = ["#red-div", "#blue-div", "#green-div", "#yellow-div"];
-    console.log(squareArray.length);
-    var illuminateRandomSquare = randomNumber();
-    console.log("Random Square is: " + illuminateRandomSquare);
+    var computerPattern = []; //--why does this work?--//
+    var userIndex = 0; //--what does this actually do?--//
+    var squares = $(".square");
 
     //-------GENERATE RANDOM NUMBER----------//
     function randomNumber() {
         return Math.floor(Math.random() * (3 - 0 + 1)) + 0;
     }
 
-
     //------------START GAME----------//
-    $("#start-game").click(function () {
-        var computerPattern = squareArray[randomNumber()];
-        $(computerPattern).fadeOut(100).fadeIn(100);
-        if (userPattern == computerPattern) {
-            return userPattern.append(randomNumber());
-        }
+    $("#start-game-btn").click(function () {
+        simonsTurn();
     });
 
-    // on click of correct box pattern should repeat what was already output and add one box to the pattern
-
+    //----------SIMON'S TURN-------------//
+    var simonsTurn = function () {
+        computerPattern.push(squares[randomNumber()]);
+        $(computerPattern).each /** what exactly is going on here? **/ (function(index, element) {
+            $(element).fadeOut(100).fadeIn(100);
+        });
+    };
 
     //-------ANIMATE SQUARE UPON CLICKING------//
-    $(".square").click(function () {
+    squares.click(function () {
         $(this).fadeOut(100).fadeIn(100);
+        matchPatterns(this, userIndex);
     });
+
+    //-----------FUNCTION TO ADD TO PATTERN-----------//
+    function matchPatterns(userClick, userIndex) {
+        if (userClick === computerPattern[userIndex]) {
+            simonsTurn();
+            userIndex += 1;
+        } else {
+            // run game over
+            userIndex = 0;
+        }
+    }
+
+    //------------STORE USER INPUT--------------//
+    function storeUserInput() {
+        userPattern;
+    }
 });
