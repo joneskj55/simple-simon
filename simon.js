@@ -3,9 +3,9 @@
 "use strict";
 
 $(document).ready(function () {
-    var computerPattern = []; //--why does this work?--//
+    var computerPattern = [];
     var userPattern = [];
-    var userIndex = 0; //--what does this actually do?--//
+    var userIndex = 0;
     var squares = $(".square");
 
     //-------GENERATE RANDOM NUMBER----------//
@@ -21,7 +21,7 @@ $(document).ready(function () {
     //----------SIMON'S TURN-------------//
     var simonsTurn = function () {
         computerPattern.push(squares[randomNumber()]);
-        $(computerPattern).each /** what exactly is going on here? **/ (function(index, element) {
+        $(computerPattern).each(function(index, element) {
             $(element).fadeOut(500).fadeIn(500);
         });
     };
@@ -46,7 +46,7 @@ $(document).ready(function () {
     }
 
     //-----------FUNCTION TO ADD TO PATTERN-----------//
-    function matchPatterns(userClick, userIndex) /** what is this? **/ {
+    function matchPatterns(userClick, userIndex) {
         if (userClick === computerPattern[userIndex]) {
             simonsTurn();
             userIndex += 1;
