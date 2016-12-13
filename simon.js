@@ -3,26 +3,57 @@
 "use strict";
 
 var computerPattern = [];
-var userPattern = [];
+// var userPattern = [];
+var userIndex = 0;
+var squares = $(".square");
 
 $(document).ready(function () {
-    var squareArray = ["#red-div", "#blue-div", "#green-div", "#yellow-div"];
+
 
     //-------GENERATE RANDOM NUMBER----------//
-    function randomNumber() {
-        return Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+    function getRandomSquare(squares) {
+        return squares[Math.floor(Math.random() * 4)];
     }
 
     //------------START GAME----------//
-    $("#start-game-btn").click(function () {
-        var computerPattern = squareArray[randomNumber()];
-        $(computerPattern).fadeOut(100).fadeIn(100);
-        if (userPattern == computerPattern) {
-        }
+    var startGame = $("#start-game-btn").click(function () {
+        computerPattern.push(getRandomSquare(squares));
+        animateSequence(computerPattern);
     });
+
+    var animateSequence = function (computerPattern) {
+        computerPattern.forEach(function (element) {
+            animate(element);
+        })
+    };
+
+    var animate = function (square) {
+        $(square).fadeOut(100).fadeIn(100);
+    };
+
+
+    //------------TAKE USER INPUT----------//
+    function matchPatterns() {
+        if (userIndex === computerPattern) {
+            simonsTurn += 1;
+            if () {
+            // run success functionality
+            // return true
+            }
+        } else {
+            alert("NOPE!");
+            userIndex = 0;
+            //return false
+        }
+    }
 
     //-------ANIMATE SQUARE UPON CLICKING------//
     $(".square").click(function () {
-        $(this).fadeOut(100).fadeIn(100);
+        animate(this);
+        if (matchPatterns()) {
+
+        } else {
+
+        }
     });
 });
