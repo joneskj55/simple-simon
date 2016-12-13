@@ -3,32 +3,59 @@
 #main-header {
     font-family: 'Molle', cursive;
     text-align: center;
+    color: white;
+}
+
+.board {
+    position: relative;
+    margin-bottom: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 381px;
+    width: 388px;
+    text-align: right;
+    background-color: black;
+    border: 2px solid;
+    border-radius: 174px;
 }
 
 .square {
-    height: 200px;
-    width: 200px;
+    height: 92px;
+    width: 93px;
+    margin-top: -17px;
     float: left;
-    margin: 5px;
+    border: 2px;
+    opacity: .3;
+    border-radius: 120px;
+    margin-left: 69px;
 }
 
-#red-div {
+.red {
     background-color: red;
 }
 
-#blue-div {
+.blue {
     background-color: blue;;
 }
 
-#green-div {
+.green {
     background-color: green;
     clear: both;
 }
 
-#yellow-div {
+.yellow {
     background-color: yellow;
 }
 
-#start-game-btn {
-
+.control-button {
+    font-weight: bold;
+    width: 80px;
+    height: 30px;
+    border: 2px solid;
+    border-radius: 25px;
+    background-color: white;
+    margin-left: 46px;
+    margin-right: 150px;
+    margin-top: -1px;
 }
+
