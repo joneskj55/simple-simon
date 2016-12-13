@@ -5,11 +5,13 @@ $(document).ready(function () {
     var userSequence = [];
     var simonSequence = [];
     var squares = $(".square");
+    var audio = new Audio("shotgun-mossberg590-RA_The_Sun_God-451502290.mp3");
 
 //------------RESET SIMON'S SEQUENCE AND CALL simonMove()------------//
     function start() {
         simonSequence = [];
         simonMove();
+        audio.play();
     }
 
 //----RESET USER SEQUENCE, CALL addRandomSquareToSequence(), AND BEGIN PLAYBACK-----//
