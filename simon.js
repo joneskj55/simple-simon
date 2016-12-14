@@ -4,7 +4,7 @@
 $(document).ready(function () {
     var userSequence = [];
     var simonSequence = [];
-    var squares = $(".square");
+    var circles = $(".circle");
     var audio = new Audio("shotgun-mossberg590-RA_The_Sun_God-451502290.mp3");
     var gamestart = new Audio("Pacman_Introduction_Music-KP-826387403.mp3")
 
@@ -15,28 +15,28 @@ $(document).ready(function () {
         simonMove();
     }
 
-//----RESET USER SEQUENCE, CALL addRandomSquareToSequence(), AND BEGIN PLAYBACK-----//
+//----RESET USER SEQUENCE, CALL addRandomCircleToSequence(), AND BEGIN PLAYBACK-----//
     function simonMove() {
         userSequence = [];
-        addRandomSquareToSequence();
+        addRandomCircleToSequence();
         playback();
     }
 
-//-----GENERATE RANDOM NUMBER BETWEEN 0-3 TO MATCH WITH ARRAY INDEX OF var squares---//
-//---PUSH ID OF SQUARE (WHICH IS THE SAME AS ITS INDEX) ONTO THE simonSequence array--//
-    function addRandomSquareToSequence() {
+//-----GENERATE RANDOM NUMBER BETWEEN 0-3 TO MATCH WITH ARRAY INDEX OF var circles---//
+//---PUSH ID OF CIRCLE (WHICH IS THE SAME AS ITS INDEX) ONTO THE simonSequence array--//
+    function addRandomCircleToSequence() {
         var random = Math.floor(Math.random() * 4);
-        simonSequence.push(squares[random].id);
+        simonSequence.push(circles[random].id);
     }
 
 //--------INITIATE PLAYBACK OF SIMON'S SEQUENCE----------//
     function playback() {
-        disableInput();
+        disableInput(); //--disables click listener--//
 
         //----UPDATE SCORE------//
         document.getElementById("round").innerText = "Round: " + simonSequence.length;
 
-        //----CREATE THE COUNTER VARIABLE----//
+        //--------------COUNTER------------------//
         var i = 0;
 
         //--PLAYBACK EACH SIMON SELECTION IN SIMON'S SEQUENCE--//
@@ -47,7 +47,7 @@ $(document).ready(function () {
             //---CHECK IF COUNTER IS EQUAL TO GAME SEQUENCE LENGTH--//
             if (i >= simonSequence.length) {
                 clearInterval(intervalId);
-                enableInput();
+                enableInput(); //--function allows user to click desired circle--//
             }
         }, 1000);
     }
@@ -63,7 +63,7 @@ $(document).ready(function () {
         var sequenceError = false;
 
         //--LOOP THROUGH THE INPUT SEQUENCE AND PERFORM THE FOLLOWING:
-        //--check if the game and input sequence match for a given offset...
+        //--check if the computer and user input sequence match...
         //--if they don't match set your error status variable to true and get out of the loop...
         for (var i = 0; i < userSequence.length; i++) {
             if (simonSequence[i] == undefined || simonSequence[i] != userSequence[i]) {
@@ -86,14 +86,14 @@ $(document).ready(function () {
         //--HARD RELOAD THE PAGE--//
         location.reload(true);
 
-        confirm("Game over. Play again?");
+        confirm("Game over. Would you like to play again?");
         if (confirm) {
             start();
         }
     }
 
     function stop() {
-        alert("User stopped the game");
+        alert("Game stopped.");
         location.reload(true);
     }
 
@@ -106,19 +106,20 @@ $(document).ready(function () {
     }
 
     function enableInput() {
-        document.getElementById("0").addEventListener("click", userClick, false);
-        document.getElementById("1").addEventListener("click", userClick, false);
-        document.getElementById("2").addEventListener("click", userClick, false);
-        document.getElementById("3").addEventListener("click", userClick, false);
+        $("#0").click(userClick).on();
+        $("#1").click(userClick).on();
+        $("#2").click(userClick).on();
+        $("#3").click(userClick).on();
     }
 
     function disableInput() {
-        document.getElementById("0").removeEventListener("click", userClick, false);
-        document.getElementById("1").removeEventListener("click", userClick, false);
-        document.getElementById("2").removeEventListener("click", userClick, false);
-        document.getElementById("3").removeEventListener("click", userClick, false);
+        $("#0").click(userClick).off();
+        $("#1").click(userClick).off();
+        $("#2").click(userClick).off();
+        $("#3").click(userClick).off();
     }
 
-    document.getElementById("start").addEventListener("click", start, false);
-    document.getElementById("stop").addEventListener("click", stop, false);
+    //--------START AND STOP BUTTONS--------//
+        $("#start").click(start).on();
+        $("#stop").click(stop).on();
 });
