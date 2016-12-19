@@ -120,6 +120,6 @@ $(document).ready(function () {
     }
 
     //--------START AND STOP BUTTONS--------//
-        $("#start").click(start).on();
-        $("#stop").click(stop).on();
+    $("#start").click(start).on();
+    $("#stop").click(stop).on();
 });
