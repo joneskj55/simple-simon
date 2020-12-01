@@ -6,12 +6,13 @@ $(document).ready(function () {
     var simonSequence = [];
     var circles = $(".circle");
     var audio = new Audio("shotgun-mossberg590-RA_The_Sun_God-451502290.mp3");
-    var gamestart = new Audio("Pacman_Introduction_Music-KP-826387403.mp3")
-
+    var gamestart = new Audio("Pacman_Introduction_Music-KP-826387403.mp3");
+	var simon_fx = [];
 //------------RESET SIMON'S SEQUENCE AND CALL simonMove()------------//
     function start() {
         gamestart.play();
         simonSequence = [];
+		simon_fx = [new Audio("sounds/simon_red.mp3"), new Audio("sounds/simon_blue.mp3"), new Audio("sounds/simon_green.mp3"), new Audio("sounds/simon_yellow.mp3")];
         simonMove();
     }
 
@@ -42,6 +43,7 @@ $(document).ready(function () {
         //--PLAYBACK EACH SIMON SELECTION IN SIMON'S SEQUENCE--//
         var intervalId = setInterval(function () {
             lightUp(document.getElementById(simonSequence[i]));
+			simon_fx[simonSequence[i]].play();
             i++;
 
             //---CHECK IF COUNTER IS EQUAL TO GAME SEQUENCE LENGTH--//
@@ -100,6 +102,8 @@ $(document).ready(function () {
     function userClick() {
         var userChoice = this.id;
         lightUp(this);
+		simon_fx[this.id].currentTime = 0;
+		simon_fx[this.id].play();
         audio.play();
         userSequence.push(userChoice);
         compareSequences();
