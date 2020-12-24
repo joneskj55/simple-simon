@@ -46,16 +46,16 @@
     background-color: yellow;
 }
 
-.button {	
-    font-weight: bold;	
-    width: 80px;	
-    height: 30px;	
-    border: 2px solid;	
-    border-radius: 25px;	
-    background-color: white;	
-    margin-left: 46px;	
-    margin-right: 123px;	
-    margin-top: -1px;	
+.button {
+    font-weight: bold;
+    width: 80px;
+    height: 30px;
+    border: 2px solid;
+    border-radius: 25px;
+    background-color: white;
+    margin-left: 46px;
+    margin-right: 123px;
+    margin-top: -1px;
 }
 
 .github-button {
@@ -78,4 +78,18 @@
 
 .github-button:visited {
     color: white;
+}
+
+.main {
+    text-align: center;
+}
+
+.error {
+    font-size: 10em;
+    color: #f7e016;
+}
+
+.sub-header {
+    text-align: center;
+    font-size: 50px;
 }
