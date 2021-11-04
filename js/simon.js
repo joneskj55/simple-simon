@@ -87,8 +87,10 @@ $(document).ready(function () {
         if (sequenceError) {
             gameOver();
         } else if (userSequence.length == simonSequence.length) {
-            intervalAmount *= 0.9;
-            playbackRate *= 1/0.9;
+            if (simonSequence.length % 3 == 0) {
+                intervalAmount *= 0.9;
+                playbackRate *= 1/0.9;
+            }
             simonMove();
         }
     }
