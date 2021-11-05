@@ -1,95 +1,95 @@
-@import url('https://fonts.googleapis.com/css?family=Molle:400i');
+@import url("https://fonts.googleapis.com/css?family=Molle:400i");
 
 #main-header {
-    font-family: 'Molle', cursive;
-    text-align: center;
-    color: white;
-    font-size: 25px;
+  font-family: "Molle", cursive;
+  text-align: center;
+  color: white;
+  font-size: 25px;
 }
 
 .board {
-    position: relative;
-    margin: 80px auto 25px;
-    height: 334px;
-    width: 328px;
-    text-align: right;
-    background-color: black;
-    border: 2px solid;
-    border-radius: 174px;
+  position: relative;
+  margin: 80px auto 25px;
+  height: 334px;
+  width: 328px;
+  text-align: right;
+  background-color: black;
+  border: 2px solid;
+  border-radius: 174px;
 }
 
 .circle {
-    height: 92px;
-    width: 93px;
-    margin-top: -17px;
-    float: left;
-    border: 2px;
-    opacity: .3;
-    border-radius: 120px;
-    margin-left: 48px;
+  height: 92px;
+  width: 93px;
+  margin-top: -17px;
+  float: left;
+  border: 2px;
+  opacity: 0.3;
+  border-radius: 120px;
+  margin-left: 48px;
 }
 
 .red {
-    background-color: red;
+  background-color: red;
 }
 
 .blue {
-    background-color: blue;;
+  background-color: blue;
 }
 
 .green {
-    background-color: green;
-    clear: both;
+  background-color: green;
+  clear: both;
 }
 
 .yellow {
-    background-color: yellow;
+  background-color: yellow;
 }
 
 .button {
-    font-weight: bold;
-    width: 80px;
-    height: 30px;
-    border: 2px solid;
-    border-radius: 25px;
-    background-color: white;
-    margin-left: 46px;
-    margin-right: 123px;
-    margin-top: -1px;
+  font-weight: bold;
+  width: 80px;
+  height: 30px;
+  border: 2px solid;
+  border-radius: 25px;
+  background-color: white;
+  margin-left: 46px;
+  margin-right: 123px;
+  margin-top: -1px;
 }
 
 .github-button {
-    background-color: white;
-    color: black;
-    border: 2px solid black;
-    display: block;
-    margin: 35px auto 55px;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    transition-duration: 0.4s;
-    cursor: pointer;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  display: block;
+  margin: 35px auto 55px;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
 
 .github-button:hover {
-    background-color: limegreen;
+  background-color: limegreen;
 }
 
 .github-button:visited {
-    color: white;
+  color: white;
 }
 
 .main {
-    text-align: center;
+  text-align: center;
 }
 
 .error {
-    font-size: 10em;
-    color: #f7e016;
+  font-size: 10em;
+  color: #f7e016;
 }
 
 .sub-header {
-    text-align: center;
-    font-size: 50px;
+  text-align: center;
+  font-size: 50px;
 }
