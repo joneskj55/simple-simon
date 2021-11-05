@@ -8,6 +8,9 @@ $(document).ready(function () {
     var audio = new Audio("shotgun-mossberg590-RA_The_Sun_God-451502290.mp3");
     var gamestart = new Audio("Pacman_Introduction_Music-KP-826387403.mp3");
 	var simon_fx = [];
+    var intervalAmount = 1000;
+
+    var playbackRate = 1;
 //------------RESET SIMON'S SEQUENCE AND CALL simonMove()------------//
     function start() {
         gamestart.play();
@@ -40,9 +43,13 @@ $(document).ready(function () {
         //--------------COUNTER------------------//
         var i = 0;
 
+
         //--PLAYBACK EACH SIMON SELECTION IN SIMON'S SEQUENCE--//
         var intervalId = setInterval(function () {
             lightUp(document.getElementById(simonSequence[i]));
+			simon_fx[simonSequence[i]].pause();
+            simon_fx[simonSequence[i]].currentTime = 0;
+            simon_fx[simonSequence[i]].playbackRate = playbackRate;
 			simon_fx[simonSequence[i]].play();
             i++;
 
@@ -51,14 +58,14 @@ $(document).ready(function () {
                 clearInterval(intervalId);
                 enableInput(); //--function allows user to click desired circle--//
             }
-        }, 1000);
+        }, intervalAmount);
     }
 
     function lightUp(element) {
         element.style.opacity = "1";
         var fadeoutTimerId = setTimeout(function () {
             element.style.opacity = "0.3";
-        }, 600);
+        }, 0.6 * intervalAmount);
     }
 
     function compareSequences() {
@@ -80,6 +87,10 @@ $(document).ready(function () {
         if (sequenceError) {
             gameOver();
         } else if (userSequence.length == simonSequence.length) {
+            if (simonSequence.length % 3 == 0) {
+                intervalAmount *= 0.9;
+                playbackRate *= 1/0.9;
+            }
             simonMove();
         }
     }
